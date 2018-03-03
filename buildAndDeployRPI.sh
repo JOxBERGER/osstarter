@@ -11,9 +11,11 @@ sudo chown root:root build/cclient
 sudo chmod +x build/cclient
 
 echo "Copy Files."
+
 sudo cp startupudp.service /lib/systemd/system/startupudp.service
 sudo chown root:root /lib/systemd/system/startupudp.service
 
+sudo rm -rf /usr/bin/startupudp
 sudo mkdir /usr/bin/startupudp
 sudo cp build/cclient /usr/bin/startupudp/cclient
 
