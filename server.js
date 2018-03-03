@@ -11,7 +11,7 @@ var broadcastPort = 5700;
   var server = dgram.createSocket("udp4"); 
   server.bind( function() {
     server.setBroadcast(true)
-    //server.setMulticastTTL(128);
+    server.setMulticastTTL(255);
     setInterval(sendMessage, 5);
     //process.exit();
 
