@@ -9,8 +9,8 @@ Tested with RPI3 & 2017-11-29-raspbian-stretch-lite
   
 1. compile cclient with gcc: `gcc cclient.c -o cclient`  
 2. add owner root: `sudo chown root:root` and make executebale: `sudo chmod +x cclient`  
-2. copy cclient to: `/usr/bin/startupudp/cclient`  
-3. generate /lib/systemd/system/startupudp.service containing:  
+3. copy cclient to: `/usr/bin/startupudp/cclient`  
+4. generate /lib/systemd/system/startupudp.service containing:  
 ```
 [Unit]
 Description=startupudp
@@ -25,13 +25,13 @@ ExecStart=/usr/bin/startupudp/cclient
 WantedBy=multi-user.target
 ```  
 
-4. config systemd:  
+5. config systemd:  
 `sudo systemctl daemon-reload`  
 `sudo systemctl enable startupudp.service`  
 
-5. check the service:  
+6. check the service:  
 `sudo systemctl status startupudp.service` 
 
-6. run `nano server.js`on any machine in the network.  
+7. run `nano server.js`on any machine in the network.  
 
-7. machienes running cclient should reboot imediatly.  
+8. machienes running cclient should reboot imediatly.  
