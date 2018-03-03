@@ -1,5 +1,5 @@
 
-var packetCount = 20; // how many packets will be send.
+var packetCount = 30; // how many packets will be send.
 var repetitions = 100; // repetion of udp datagramm.
 var command = "reboot";
 
