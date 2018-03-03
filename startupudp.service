@@ -1,0 +1,11 @@
+[Unit]
+Description=startupudp
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/startupudp/cclient
+
+[Install]
+WantedBy=multi-user.target
