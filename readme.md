@@ -25,10 +25,10 @@ WantedBy=multi-user.target
 ```  
 
 4. config systemd:  
-`sudo systemctl daemon-reload` 
-`sudo systemctl enable startupudp.service` 
+`sudo systemctl daemon-reload`  
+`sudo systemctl enable startupudp.service`  
 
-5. check the service:
+5. check the service:  
 `sudo systemctl status startupudp.service` 
 
 6. run `nano server.js`on any machine in the network.  
