@@ -32,3 +32,5 @@ WantedBy=multi-user.target
 `sudo systemctl status startupudp.service` 
 
 6. run `nano server.js`on any machine in the network.  
+
+7. machienes running cclient should reboot imediatly.  
