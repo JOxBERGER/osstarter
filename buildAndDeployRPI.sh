@@ -21,5 +21,6 @@ sudo cp build/cclient /usr/bin/startupudp/cclient
 
 sudo systemctl daemon-reload
 sudo systemctl enable startupudp.service
+sudo systemctl start startupudp.service
 sudo systemctl status startupudp.service
 
