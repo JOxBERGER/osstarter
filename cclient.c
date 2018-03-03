@@ -106,6 +106,6 @@ int main(int argc, char *argv[])
             fflush(stdout);
             system("sudo shutdown now");
         }
-        usleep(30000);
+        sleep(3);
     }
 }
