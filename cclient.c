@@ -13,7 +13,7 @@
 #include <string.h>     /* for memset() */
 #include <unistd.h>     /* for close() */
 
-#include <sys/reboot.h>
+//#include <sys/reboot.h>
 //#import <CoreServices/CoreServices.h>
 
 #define MAXRECVSTRING 255  /* Longest string to receive */
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 {
     int sock;                         /* Socket */
     struct sockaddr_in broadcastAddr; /* Broadcast Address */
-    unsigned short broadcastPort;     /* Port */
+    unsigned short broadcastPort = 5700;     /* Port */
     char recvString[MAXRECVSTRING+1]; /* Buffer for received string */
     int recvStringLen;                /* Length of received string */
     unsigned long counter = 0;
@@ -43,11 +43,13 @@ int main(int argc, char *argv[])
     printf(" - - \n");
     fflush(stdout);
 
+    printf("Port defaults to 5700 To use another port start with ./client <PORT>.\n");
+
     if (argc == 2) {
         broadcastPort = atoi(argv[1]);
+        printf("Port defined per commandline argument to %d\n", broadcastPort);
     }
-    printf("Port defaults to 5700 To use another port start with ./client <PORT>.\n");
-    printf("Using Port: %d\n", broadcastPort);
+    printf("Now Using Port: %d\n", broadcastPort);
     fflush(stdout);
     
 
@@ -65,11 +67,7 @@ int main(int argc, char *argv[])
 
     /* Bind to the broadcast port */
     if (bind(sock, (struct sockaddr *) &broadcastAddr, sizeof(broadcastAddr)) < 0)
-        printf("bind() failed");
-
-        /* test restart */
-        int rb = reboot(RB_ASKNAME);
-        printf("rb: %d\n", rb);
+        printf("bind() failed");        
 
     
 fflush(stdout);
@@ -80,7 +78,7 @@ fflush(stdout);
     //exit(0);
     //system("touch test.txt < 123");
     //system("..");
-    for( ; ; ) {
+    while(1) {
       printf("\n");
           /* Receive a single datagram from the server */
     recvStringLen = recvfrom(sock, recvString, MAXRECVSTRING, 0, NULL, 0);
@@ -97,6 +95,7 @@ fflush(stdout);
     if (strcmp(recvString, "!!reboot!!") == 0) {
         printf("will reboot\n\n");
         fflush(stdout);
+        
     }
     else if (strcmp(recvString, "!!shutdown!!") == 0){
         printf("will shutdown\n\n\n\n");
