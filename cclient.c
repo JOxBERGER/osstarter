@@ -1,5 +1,11 @@
 #if defined(__APPLE__) && defined(__MACH__)
-    const char* os = "OSX";
+    const char* os = "osx";
+#elif defined(__linux__)
+    const char* os = "linux";
+#elif defined(_WIN32) 
+    const char* os = "win32"
+#elif defined(_WIN64) 
+    const char* os = "win64"
 #else
     const char* os = "???";
 #endif
