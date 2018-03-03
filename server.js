@@ -1,6 +1,7 @@
 
-var packetCount = 100; // how many packets will be send.
+var packetCount = 3; // how many packets will be send.
 var repetitions = 10; // repetion of udp datagramm.
+var command = "reboot";
 
 var messageBlock = 0;
 var messageID = -1;
@@ -17,15 +18,25 @@ var broadcastPort = 5700;
 
   });
   
+console.log(process.argv.length);
+console.log(process.argv[2]);
+if (process.argv.length === 3) {
+  command = process.argv[2];
+}
+
+
 function sendMessage () {
-  console.log("start   ")
+  var message = `!!${command}!!`
+  var messageB = new Buffer(`${message}`);
+  console.log(`\nStart.\nMessage: ${message} `)
+
   for (var i = 1; i <= repetitions; i++) {
     messageID++;
     
     //var messageObject = {"action": "RESTART", "time": Date.now(), "messageBlock": messageBlock, "messageRepetition": i}; 
     //var message = new Buffer(JSON.stringify(messageObject));
-    var message = new Buffer(`!!reboot!!`);
-    server.send(message, 0, message.length, broadcastPort, broadcastAdress, messageSent(i)); 
+    
+    server.send(messageB, 0, messageB.length, broadcastPort, broadcastAdress, messageSent(i)); 
   }
 
 }  
