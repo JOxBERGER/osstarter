@@ -1,7 +1,7 @@
-#About:
+# About:
 Exploartion on how to restart linux machienes with low level udp commands.  
-Very experimental and not testet at all. 
-Not suposed to be used on any production systems at all!.  
+Very experimental and not testet at all.  
+Not suposed to be used on any production system at all!.  
 
 
 
