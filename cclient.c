@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
         {
             printf("will reboot\n\n");
             fflush(stdout);
-            system("sudo shutdown -r now");
+            system("cd /home/pi/osstarter && git pull"); //sudo shutdown -r now");
         }
         else if (strcmp(recvString, "!!shutdown!!") == 0)
         {
