@@ -26,12 +26,14 @@ if (process.argv.length === 3) {
 
 
 function sendMessage () {
-  var message = `!!${command}!!`
-  var messageB = new Buffer(`${message}`);
+
+  
   console.log(`\nStart. Message: ${message} `)
 
   for (var i = 1; i <= repetitions; i++) {
     messageID++;
+    var message = `!!${command}!!${messageID}`
+    var messageB = new Buffer(`${message}`);
     
     //var messageObject = {"action": "RESTART", "time": Date.now(), "messageBlock": messageBlock, "messageRepetition": i}; 
     //var message = new Buffer(JSON.stringify(messageObject));
