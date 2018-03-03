@@ -1,6 +1,6 @@
 
-var packetCount = 30; // how many packets will be send.
-var repetitions = 100; // repetion of udp datagramm.
+var packetCount = 100; // how many packets will be send.
+var repetitions = 20; // repetion of udp datagramm.
 var command = "reboot";
 
 var messageBlock = 0;
@@ -28,7 +28,7 @@ if (process.argv.length === 3) {
 function sendMessage () {
   var message = `!!${command}!!`
   var messageB = new Buffer(`${message}`);
-  console.log(`\nStart.\nMessage: ${message} `)
+  console.log(`\nStart. Message: ${message} `)
 
   for (var i = 1; i <= repetitions; i++) {
     messageID++;
