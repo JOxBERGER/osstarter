@@ -23,9 +23,10 @@ function sendMessage () {
     var messageObject = {"action": "RESTART", "time": Date.now(), "messageBlock": messageBlock, "messageRepetition": i}; 
     //var message = new Buffer(JSON.stringify(messageObject));
     var message = new Buffer(`!!reboot!!`);
-    server.send(message, 0, message.length, broadcastPort, broadcastAdress, messageSent(i));
-    
+    server.send(message, 0, message.length, broadcastPort, broadcastAdress, messageSent(i)); 
   }
+  
+  process.exit();
 
 }  
 
@@ -38,6 +39,4 @@ function messageSent (repetition) {
     console.log(`... send Block ${messageBlock} to ${broadcastAdress}:${broadcastPort}`);
   }
   
-    
-    //process.exit();
 }
