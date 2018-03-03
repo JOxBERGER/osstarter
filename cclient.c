@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
     unsigned long counter = 0;
 
     //printf("port defaults to 5700 To use another port start with ./client <PORT>.");
-    printf(" Startupudp on");
+    printf(" Startupudp on ");
     printf(os);
     printf(" started.\n\n");
     fflush(stdout);
