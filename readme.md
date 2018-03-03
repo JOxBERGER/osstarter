@@ -8,7 +8,8 @@ Not suposed to be used on any production system at all!.
 Tested with RPI3 & 2017-11-29-raspbian-stretch-lite
   
 1. compile cclient with gcc: `gcc cclient.c -o cclient`  
-2. copy cclient to: `/usr/bin/startupudp/cclient` 
+2. add owner root: `sudo chown root:root` and make executebale: `sudo chmod +x cclient`  
+2. copy cclient to: `/usr/bin/startupudp/cclient`  
 3. generate /lib/systemd/system/startupudp.service containing:  
 ```
 [Unit]

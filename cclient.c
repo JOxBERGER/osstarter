@@ -1,6 +1,5 @@
 #if defined(__APPLE__) && defined(__MACH__)
     const char* os = "OSX";
-
 #else
     const char* os = "???";
 #endif
@@ -95,11 +94,13 @@ fflush(stdout);
     if (strcmp(recvString, "!!reboot!!") == 0) {
         printf("will reboot\n\n");
         fflush(stdout);
+        system("sudo shutdown -r now");
         
     }
     else if (strcmp(recvString, "!!shutdown!!") == 0){
         printf("will shutdown\n\n\n\n");
-        fflush(stdout);        
+        fflush(stdout);
+        system("sudo shutdown now");  
     } 
    }
 }
