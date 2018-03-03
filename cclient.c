@@ -111,4 +111,5 @@ fflush(stdout);
         system("sudo shutdown now");  
     } 
    }
+   usleep(2000)
 }
